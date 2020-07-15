@@ -1,5 +1,5 @@
 /*eslint-disable*/
-import React,{useState,useEffect} from "react";
+import React,{useState,useEffect,useRef} from "react";
 import DeleteIcon from "@material-ui/icons/Delete";
 import IconButton from "@material-ui/core/IconButton";
 // react components for routing our app without refresh
@@ -29,13 +29,13 @@ const useStyles = makeStyles(styles);
 
 export default function HeaderLinks(props) {
   const classes = useStyles();
+  const meubutton = useRef(null);
   
   
 
   
   var contatador = 0;
   const restoreBaseDadosNovo = async ()=>{
-    
     if(!myVar){
       
       myFunction();
@@ -50,7 +50,7 @@ export default function HeaderLinks(props) {
    
      
       const restoreBD = await api.getRestore();
-      document.querySelector("#nomelink").innerHTML = "<span style='color:green'> Restaurado </span>";
+      meubutton.current.innerHTML = "<span style='color:green'> Restaurado </span>";
       setTimeout(function(){ 
         myStopFunction();
        }, 3000);
@@ -61,14 +61,16 @@ export default function HeaderLinks(props) {
 
   var myVar;
   const myFunction = () => {
-    document.querySelector("#nomelink").innerHTML = "<span style='color:red'> Restauração Em andamento</span>";
-    myVar = setTimeout(function(){ restore() }, 50000);
+    
+    meubutton.current.innerHTML = "<span style='color:red'> Restauração Em andamento</span>";
+    document.querySelector("#nomelink").textContent = "<span style='color:red'> Restauração Em andamento</span>";
+    myVar = setTimeout(function(){ restore() }, 5000);
   }
   
   const myStopFunction = () => {
     clearTimeout(myVar);
     myVar = null;
-    document.querySelector("#nomelink").innerHTML = "Restaura BD";
+    meubutton.current.innerHTML = "Restaura BD";
      
   }
 
@@ -86,7 +88,7 @@ export default function HeaderLinks(props) {
           id="buttonRecarregar"
          
         >
-          <Icon>refresh</Icon> <span id="nomelink">Restaura BD</span>
+          <Icon>refresh</Icon> <span id="nomelink" ref={meubutton}>Restaura BD</span>
         </Button>
       </ListItem>
       <ListItem className={classes.listItem}>
