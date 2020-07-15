@@ -3,7 +3,8 @@ import axios from "axios";
 /**
  * Link da API
  */
-const API_URL = "http://localhost:3001";
+//const API_URL = "http://localhost:3001";
+const API_URL = "https://controlefinanceiroheroku.herokuapp.com";
 
 async function getPeriodos(token, email, tipoLogin) {
   const res = await axios.get(
