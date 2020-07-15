@@ -9,7 +9,7 @@ async function getPeriodos(token, email, tipoLogin) {
   const res = await axios.get(
     `${API_URL}/api/transaction/periodos`
   );
-  //console.log(res.data);
+  
 
   return res.data;
 }
@@ -72,7 +72,7 @@ async function postLancamento(tipoModal) {
       !valorLanca || 
       !dataLanca  
     ){
-      console.log("erro");
+      
       return {erro: "Todos os campos deve ser preenchidos"};
   }
   
@@ -100,35 +100,10 @@ async function deleteLancamento(id) {
   
 const response = await axios.delete(
     `${API_URL}/api/transaction/${id}`);
-//const response = { data: { resposta: true } };
 return response.data;
 }
 
-// async function getToken(token) {
-//   const res = await axios.get(`${API_URL}?token=${token}&login=1`);
-//   // console.log("token abaixo");
-//   // console.log(res.data);
 
-//   return res.data;
-// }
-
-// async function getTorneio(torneio, parceiro, token = "", email = "") {
-//   const res = await axios.get(
-//     `${API_URL}?id_campeonatos_rodada_atual=${torneio}&token=${token}&email=${email}&inicio=1`
-//   );
-//   console.log(res.data);
-
-//   return res.data;
-// }
-
-// async function getUsuario(torneio, nickAtual) {
-//   const res = await axios.get(
-//     `${API_URL}?id_campeonatos_rodada_atual=${torneio}&nickAtual=${nickAtual}`
-//   );
-//   //console.log(res.data);
-
-//   return res.data.resposta;
-// }
 
 
 

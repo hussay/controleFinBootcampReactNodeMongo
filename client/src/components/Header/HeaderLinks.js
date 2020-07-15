@@ -35,12 +35,12 @@ export default function HeaderLinks(props) {
   
   var contatador = 0;
   const restoreBaseDadosNovo = async ()=>{
-    console.log("certo dentro"+myVar);
+    
     if(!myVar){
-      console.log("não estou criado");
+      
       myFunction();
     }else{
-      console.log("tentando parar");
+      
       myStopFunction();
     }
     
@@ -48,7 +48,7 @@ export default function HeaderLinks(props) {
   }
   const restore = async ()=>{
    
-      console.log("atualizei");
+     
       const restoreBD = await api.getRestore();
       document.querySelector("#nomelink").innerHTML = "<span style='color:green'> Restaurado </span>";
       setTimeout(function(){ 
