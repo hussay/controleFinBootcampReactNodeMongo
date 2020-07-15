@@ -64,7 +64,7 @@ export default function HeaderLinks(props) {
     
     meubutton.current.innerHTML = "<span style='color:red'> Restauração Em andamento</span>";
     document.querySelector("#nomelink").textContent = "<span style='color:red'> Restauração Em andamento</span>";
-    myVar = setTimeout(function(){ restore() }, 5000);
+    myVar = setTimeout(function(){ restore() }, 50000);
   }
   
   const myStopFunction = () => {
