@@ -225,7 +225,8 @@ export default function ControleSection() {
   }
 
   const modalCriarFuncao = (evento) =>{
-    setEscolhaType(escolhaType);
+   
+    setEscolhaType(toggleSwitch("Despesa"));
     setCorpoModal('');
     setTipoEdicaoModal(2);
     setTituloModal('Novo Lançamento');
@@ -235,7 +236,7 @@ export default function ControleSection() {
     setDataModal('2019-01-01');
     setIdModal('');
     setTipoModal(tipoModal);
-    setTipoModalCriar(tipoModalCriar);
+    setTipoModalCriar(false);
     setClassicModal(true);
     
 }
